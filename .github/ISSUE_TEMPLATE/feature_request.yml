@@ -1,0 +1,77 @@
+name: 🚀 Helm Chart Feature Request
+description: "Submit a proposal for a new feature in the Helm chart"
+title: "🚀 Helm Chart Feature: "
+labels: [feature, component: helm-chart]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We appreciate your time and effort in submitting this Feature request for our Helm chart. 🙏
+  - type: textarea
+    id: feature-description
+    validations:
+      required: true
+    attributes:
+      label: "🔖 Feature description"
+      description: "A clear and concise description of the feature you're proposing for the Helm chart."
+      placeholder: "The Helm chart should support ..."
+  - type: textarea
+    id: use-case
+    validations:
+      required: true
+    attributes:
+      label: "🎯 Use Case"
+      description: "Please describe the use case for this feature. How would it benefit users of the Helm chart?"
+      placeholder: "This feature would allow users to ..."
+  - type: textarea
+    id: proposed-implementation
+    validations:
+      required: true
+    attributes:
+      label: "✨ Proposed Implementation"
+      description: "If you have ideas on how this feature could be implemented in the Helm chart, please share them here."
+      placeholder: "This could be implemented by adding the following to the values.yaml: ..."
+  - type: textarea
+    id: alternatives-considered
+    validations:
+      required: false
+    attributes:
+      label: "🔄 Alternatives Considered"
+      description: "Have you considered any alternative solutions or workarounds? If so, please describe them here."
+      placeholder: "I've considered using ... but it doesn't fully address the need because ..."
+  - type: textarea
+    id: additional-context
+    validations:
+      required: false
+    attributes:
+      label: "📘 Additional Context"
+      description: "Any other context, screenshots, or examples that might help illustrate the feature request."
+  - type: input
+    id: helm-version
+    attributes:
+      label: "⎈ Helm Version"
+      description: "What version of Helm are you using? This helps us understand compatibility considerations."
+      placeholder: "v3.7.0"
+  - type: input
+    id: chart-version
+    attributes:
+      label: "📊 Current Chart Version"
+      description: "What version of our Helm chart are you currently using?"
+      placeholder: "1.0.0"
+  - type: checkboxes
+    id: no-duplicate-issues
+    attributes:
+      label: "👀 Have you checked if this feature has been requested before?"
+      options:
+        - label: "I have searched existing issues and didn't find a similar feature request"
+          required: true
+  - type: dropdown
+    id: willing-to-submit-pr
+    attributes:
+      label: "🤝 Contribution"
+      description: "Would you be willing to submit a PR for this feature? (This is not required, but we're happy to guide you through the process!)"
+      options:
+        - "Yes, I'd be willing to submit a PR!"
+        - "No, not at this time"
+    validations:
+      required: true

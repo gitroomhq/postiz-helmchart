@@ -1,0 +1,105 @@
+name: "🐛 Helm Chart Bug Report"
+description: "Submit a bug report for the Helm chart to help us improve"
+title: "🐛 Helm Chart Bug: "
+labels: ["type: bug", "component: helm-chart"]
+body:
+  - type: markdown
+    attributes:
+      value: We appreciate your time and effort in submitting this bug report for our Helm chart. 🙏
+  - type: textarea
+    id: description
+    validations:
+      required: true
+    attributes:
+      label: "📜 Description"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "The Helm chart fails to deploy when ..."
+  - type: textarea
+    id: steps-to-reproduce
+    validations:
+      required: true
+    attributes:
+      label: "👟 Reproduction steps"
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      placeholder: "1. Set the following values in values.yaml: ...
+                    2. Run 'helm install ...'
+                    3. Observe the error in ..."
+  - type: textarea
+    id: expected-behavior
+    validations:
+      required: true
+    attributes:
+      label: "👍 Expected behavior"
+      description: "What did you expect to happen?"
+      placeholder: "The Helm chart should successfully deploy and ..."
+  - type: textarea
+    id: actual-behavior
+    validations:
+      required: true
+    attributes:
+      label: "👎 Actual Behavior"
+      description: "What actually happened? Please include any error messages or logs."
+      placeholder: "The Helm chart failed to deploy with the following error: ..."
+  - type: input
+    id: kubernetes-version
+    validations:
+      required: true
+    attributes:
+      label: "☸️ Kubernetes Version"
+      description: "What version of Kubernetes are you using?"
+      placeholder: "v1.22.0"
+  - type: input
+    id: helm-version
+    validations:
+      required: true
+    attributes:
+      label: "⎈ Helm Version"
+      description: "What version of Helm are you using?"
+      placeholder: "v3.7.0"
+  - type: input
+    id: chart-version
+    validations:
+      required: true
+    attributes:
+      label: "📊 Chart Version"
+      description: "What version of our Helm chart are you using?"
+      placeholder: "1.0.0"
+  - type: dropdown
+    id: cloud-provider
+    attributes:
+      label: "☁️ Cloud Provider"
+      description: "Which cloud provider or platform are you using?"
+      options:
+        - AWS
+        - Google Cloud
+        - Azure
+        - DigitalOcean
+        - On-premises
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: custom-values
+    attributes:
+      label: "🛠️ Custom Values"
+      description: "If applicable, provide the custom values you're using (remember to remove any sensitive information)"
+      render: yaml
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📃 Additional Context"
+      description: "Add any other context about the problem here."
+  - type: checkboxes
+    id: no-duplicate-issues
+    attributes:
+      label: "👀 Have you checked if this bug has been reported before?"
+      options:
+        - label: "I have searched existing issues and didn't find a similar bug report"
+          required: true
+  - type: dropdown
+    attributes:
+      label: Are you willing to submit a PR?
+      description: This is not required, but we're happy to guide you through the process. Join our community for support!
+      options:
+        - "Yes, I'm willing to submit a PR!"
+        - "No, not at this time"
