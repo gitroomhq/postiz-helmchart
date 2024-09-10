@@ -1,0 +1,101 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/gitroomhq/postiz-app
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# PostgreSQL configuration
+postgresql:
+  enabled: true
+  auth:
+    username: postiz
+    password: postiz-password
+    database: postiz
+  service:
+    ports:
+      postgresql: 5432
+
+# Redis configuration
+redis:
+  enabled: true
+  auth:
+    password: postiz-redis-password
+  master:
+    service:
+      ports:
+        redis: 6379
+
+# Environment variables
+env:
+  FRONTEND_URL: "http://localhost:4200"
+  NEXT_PUBLIC_BACKEND_URL: "http://localhost:3000"
+  BACKEND_INTERNAL_URL: "http://backend:3000"
+  UPLOAD_DIRECTORY: ""
+  NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY: ""
+  NX_ADD_PLUGINS: "false"
+  IS_GENERAL: "true"
+
+# Sensitive environment variables (to be stored in Secrets)
+secrets:
+  DATABASE_URL: ""
+  REDIS_URL: ""
+  JWT_SECRET: ""
+  X_API_KEY: ""
+  X_API_SECRET: ""
+  LINKEDIN_CLIENT_ID: ""
+  LINKEDIN_CLIENT_SECRET: ""
+  REDDIT_CLIENT_ID: ""
+  REDDIT_CLIENT_SECRET: ""
+  GITHUB_CLIENT_ID: ""
+  GITHUB_CLIENT_SECRET: ""
+  RESEND_API_KEY: ""
+  CLOUDFLARE_ACCOUNT_ID: ""
+  CLOUDFLARE_ACCESS_KEY: ""
+  CLOUDFLARE_SECRET_ACCESS_KEY: ""
+  CLOUDFLARE_BUCKETNAME: ""
+  CLOUDFLARE_BUCKET_URL: ""
