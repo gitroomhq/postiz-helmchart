@@ -10,11 +10,12 @@ This Helm chart deploys the Postiz application on a Kubernetes cluster using the
 
 ## Installing the Chart
 
+The Postiz helm chart registry uses the OCI format, not HTTP, which means you do not need to do a `helm repo add` to install the chart. You can install the chart directly from the GitHub repository.
+
 To install the chart with the release name `postiz-app`:
 
 ```bash
-$ helm repo add postiz https://github.com/gitroomhq/postiz-helmchart
-$ helm install postiz-app postiz/postiz
+$ helm install postiz oci://ghcr.io/gitroomhq/postiz-helmchart/charts/postiz-app
 ```
 
 The command deploys Postiz on the Kubernetes cluster in the default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
@@ -23,7 +24,7 @@ The command deploys Postiz on the Kubernetes cluster in the default configuratio
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `postiz-app` deployment:
+To uninstall/delete the `postiz` deployment:
 
 ```bash
 $ helm delete postiz-app
