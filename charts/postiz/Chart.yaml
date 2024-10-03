@@ -4,6 +4,13 @@ description: A Social Media Scheduling App
 type: application
 version: 1.0.2
 appVersion: "1.3.0"
+maintainers:
+  - name: Jonathan Irvin
+    email: offendingcommit@gmail.com
+    url: https://linktr.ee/offendingcommit
+  - name: James Read
+    email: contact@jread.com
+    url: http://jread.com
 keywords:
   - social media
   - marketing
