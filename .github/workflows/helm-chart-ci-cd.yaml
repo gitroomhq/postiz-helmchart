@@ -32,6 +32,10 @@ jobs:
         with:
           version: v3.14.4
 
+      - name: Install Chart deps
+        run: |
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
