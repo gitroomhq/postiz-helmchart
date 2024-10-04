@@ -50,6 +50,13 @@ The following table lists the configurable parameters of the Postiz chart and th
 | `postgresql.auth.database` | PostgreSQL database   | `postiz`       |
 | `redis.enabled`          | Deploy Redis            | `true`         |
 | `redis.auth.password`    | Redis password          | `postiz-redis-password` |
+| `ingress.enabled`        | Enable ingress controller resource    | `false`                  |
+| `ingress.className`      | IngressClass that will be be used     | `""`                     |
+| `ingress.annotations`    | Ingress annotations                   | `{}`                     |
+| `ingress.hosts`          | Ingress hostnames                     | `[]`                     |
+| `ingress.tls`            | Ingress TLS configuration             | `[]`                     |
+| `ingress.path`           | Path within the host                  | `/`                      |
+| `ingress.pathType`       | Ingress path type                     | `ImplementationSpecific` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
@@ -61,13 +68,26 @@ $ helm install postiz-app \
 
 The above command sets the PostgreSQL password to `secretpassword`.
 
-Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
+Alternatively, you can use a YAML file to specify the values while installing the chart. Create a file called `custom-values.yaml` (or any name you prefer) and specify your values:
 
-```bash
-$ helm install postiz-app -f values.yaml postiz/postiz
+```yaml
+postgresql:
+  auth:
+    password: secretpassword
+ingress:
+  enabled: true
+  hosts:
+    - host: postiz.example.com
 ```
 
-> **Tip**: You can use the default [values.yaml](values.yaml)
+Then, you can install the chart using the `-f`  flag:
+
+```bash
+$ helm install postiz-app -f custom-values.yaml postiz/postiz
+```
+
+> **Tip**: You can use the default [values.yaml](values.yaml) as a starting point for your custom configuration.
+
 
 ## Persistence
 
