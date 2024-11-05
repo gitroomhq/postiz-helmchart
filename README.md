@@ -57,6 +57,8 @@ The following table lists the configurable parameters of the Postiz chart and th
 | `ingress.tls`            | Ingress TLS configuration             | `[]`                     |
 | `ingress.path`           | Path within the host                  | `/`                      |
 | `ingress.pathType`       | Ingress path type                     | `ImplementationSpecific` |
+| `extraVolumes`           | Additional volumes to mount           | `[{"name": "uploads-volume", "emptyDir": {}}]` |
+| `extraVolumeMounts`      | Additional volume mounts to use       | `[{"name": "uploads-volume", "mountPath": "/uploads"}]` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 

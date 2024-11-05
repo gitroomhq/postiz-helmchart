@@ -35,8 +35,15 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 5000
               protocol: TCP
+          volumeMounts:
+            {{- if .Values.extraVolumeMounts }}
+            {{- toYaml .Values.extraVolumeMounts | nindent 12 }}
+            {{- else }}
+            - name: uploads-volume
+              mountPath: /uploads
+            {{- end }}
           envFrom:
             - configMapRef:
                 name: {{ include "postiz.fullname" . }}-config
@@ -56,3 +63,10 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        {{- if .Values.extraVolumes }}
+        {{- toYaml .Values.extraVolumes | nindent 8 }}
+        {{- else }}
+        - name: uploads-volume
+          emptyDir: {}
+        {{- end }}
