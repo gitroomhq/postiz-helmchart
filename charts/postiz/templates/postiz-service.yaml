@@ -11,5 +11,8 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    {{- if .Values.service.additionalPorts }}
+    {{- toYaml .Values.service.additionalPorts | nindent 4 }}
+    {{- end }}
   selector:
     {{- include "postiz.selectorLabels" . | nindent 4 }}

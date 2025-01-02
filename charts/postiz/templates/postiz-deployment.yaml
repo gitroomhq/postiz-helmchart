@@ -51,6 +51,9 @@ spec:
                 name: {{ include "postiz.fullname" . }}-secrets
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.extraContainers }}
+        {{- toYaml .Values.extraContainers | nindent 8 }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

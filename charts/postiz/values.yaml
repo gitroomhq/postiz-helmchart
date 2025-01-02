@@ -23,6 +23,7 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
+  additionalPorts: []
 
 ingress:
   enabled: false  # Disabled by default
@@ -43,6 +44,8 @@ ingress:
   extraRules: []
 
 resources: {}
+
+extraContainers: []
 
 extraVolumes: []
 extraVolumeMounts: []
